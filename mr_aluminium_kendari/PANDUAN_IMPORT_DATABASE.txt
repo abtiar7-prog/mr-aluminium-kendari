@@ -1,0 +1,107 @@
+
+╔══════════════════════════════════════════════════════════════════════╗
+║     CARA IMPORT DATABASE KE LARAGON - LANGKAH DEMI LANGKAH           ║
+╚══════════════════════════════════════════════════════════════════════╝
+
+📁 LOKASI FILE:
+   C:\laragon\www\mr_aluminium_kendari\database.sql
+
+═══════════════════════════════════════════════════════════════════════
+ LANGKAH 1: BUKA PHPMYADMIN
+═══════════════════════════════════════════════════════════════════════
+
+  1. Pastikan Laragon sudah RUNNING (Apache & MySQL hijau)
+  2. Klik tombol [Database] di Laragon, ATAU
+  3. Buka browser, ketik:  http://localhost/phpmyadmin
+  4. Login dengan:
+     • Username: root
+     • Password: (kosongkan - default Laragon)
+
+═══════════════════════════════════════════════════════════════════════
+ LANGKAH 2: BUAT DATABASE BARU
+═══════════════════════════════════════════════════════════════════════
+
+  1. Di phpMyAdmin, klik tab [Database] (di bagian atas)
+  2. Pada kolom "Create database", ketik:
+
+        mr_aluminium_kendari
+
+  3. Klik tombol [Create]
+
+     ✓ Database berhasil dibuat!
+
+═══════════════════════════════════════════════════════════════════════
+ LANGKAH 3: IMPORT FILE SQL
+═══════════════════════════════════════════════════════════════════════
+
+  1. Klik database "mr_aluminium_kendari" di sidebar kiri
+  2. Klik tab [Import] (di bagian atas)
+  3. Di bagian "File to import":
+     • Klik tombol [Choose File]
+     • Cari file: C:\laragon\www\mr_aluminium_kendari\database.sql
+     • Klik [Open]
+  4. Scroll ke BAWAH, klik tombol [Go]
+
+     ✓ Import berhasil! Akan muncul pesan sukses.
+
+═══════════════════════════════════════════════════════════════════════
+ LANGKAH 4: CEK HASIL IMPORT
+═══════════════════════════════════════════════════════════════════════
+
+  1. Klik database "mr_aluminium_kendari" di sidebar kiri
+  2. Anda akan melihat 8 tabel:
+
+     ┌─────────────────────────┐
+     │  admin_users            │
+     │  gallery                │
+     │  messages               │
+     │  news                   │
+     │  projects               │
+     │  services               │
+     │  settings               │
+     │  team                   │
+     │  testimonials           │
+     └─────────────────────────┘
+
+  3. Klik salah satu tabel (misal: services)
+  4. Klik tab [Browse] untuk melihat data
+
+═══════════════════════════════════════════════════════════════════════
+ LANGKAH 5: AKSES WEBSITE
+═══════════════════════════════════════════════════════════════════════
+
+  Buka browser, ketik:
+
+      http://localhost/mr_aluminium_kendari
+
+  Untuk Admin Panel:
+
+      http://localhost/mr_aluminium_kendari/admin/login.php
+
+  Login Admin:
+      Username: admin
+      Password: mradmin2026
+
+═══════════════════════════════════════════════════════════════════════
+ TROUBLESHOOTING
+═══════════════════════════════════════════════════════════════════════
+
+  ❌ "Access denied for user 'root'@'localhost'"
+      → Cek apakah MySQL sudah running di Laragon
+      → Coba restart Laragon
+
+  ❌ "Unknown database 'mr_aluminium_kendari'"
+      → Database belum dibuat. Ulangi Langkah 2.
+
+  ❌ "No database selected"
+      → Pastikan sudah klik database sebelum klik Import
+
+  ❌ "Maximum execution time exceeded"
+      → File terlalu besar. Coba import via command line:
+        Buka Laragon Terminal, ketik:
+        mysql -u root mr_aluminium_kendari < database.sql
+
+  ❌ Website blank/putih
+      → Cek apakah folder benar di C:\laragon\www      → Cek error log: C:\laragonar\logpache_error.log
+
+═══════════════════════════════════════════════════════════════════════
